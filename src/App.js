@@ -13,13 +13,23 @@ function App() {
         setNotes([...notes, note]); //adding my note object into the notes array
     }
 
+    function deleteNote(id){
+        //console.log('hi');
+        setNotes(notes => {
+            return notes.filter((e,i) => { //filter takes a function as an argument
+                if (id !== i) {
+                    return e;
+                }
+            })
+        })
+    }
 
   return (
     <>
         <Header/>
         <InputTemplate click={addNote}/>
         {notes.map((note,i) => {
-            return <Note key={i} title={note.title} content={note.content} />
+            return <Note key={i} id={i} clickDelete={deleteNote} title={note.title} content={note.content} />
         })}
         <Footer/>
     </>
