@@ -17,10 +17,9 @@ function App() {
         //console.log('hi');
         setNotes(notes => {
             return notes.filter((e,i) => { //filter takes a function as an argument
-                if (id !== i) {
-                    return e;
+                return id !== i;
                 }
-            })
+            )
         })
     }
 

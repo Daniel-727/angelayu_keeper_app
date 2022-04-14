@@ -33,7 +33,10 @@ function InputTemplate(props) {
     function handleClick(e){ //once handleClick is executed we want our addNote function from App to execute as well
         
         props.click(note);//this is the addNote function we passed in through props */
-
+        setNote({ //once a note is added, we want to clear the input area for a new note
+            title: '',
+            content: ''
+        });
         e.preventDefault(); //since this button is in a form, this prevents the default form behavior of refreshing the page after 'submitting' a form
     }
 
